@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 10px;
+      background: #f0f0f0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #443c3c;
+      font-weight: bold;
+    }
+    section {
+      padding: 20px;
+      border-bottom: 1px solid #ccc;
+    }
+    .event-image {
+      border: 3px solid #333;
+      border-radius: 8px;
+      width: 200px;
+      height: 150px;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    caption {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+    form {
+      width: 300px;
+      margin: 0 auto 40px;
+      padding: 15px;
+      border: 1px solid black;
+      border-radius: 5px;
+      font-family: sans-serif;
+    }
+    #welcomeBanner {
+      background-color: rgb(236, 252, 10);
+      color: rgb(31, 19, 19);
+      padding: 20px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      border-radius: 4px;
+    }
+    .highlight {
+      background-color: rgba(6, 115, 211, 0.916);
+      color: black;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    #promoVideo {
+      width: 640px;
+      height: 360px;
+      border: 1px solid #ccc;
+    }
+    #feedbackTextarea {
+      width: 300px;
+      height: 100px;
+    }
+    #imageToEnlarge {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+    }
+    #imageToEnlarge.enlarged {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body bgcolor="white">
+
+  <header>
+    <center>
+    <h1>Welcome to My Event Portal</h1>
+    <p>Local Community event portal</p>
+    </center>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#register">Register</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#promo">Promo Video</a></li>
+      <li><a href="#preferences">Preferences</a></li>
+      <li><a href="#location">Nearby Events</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <div id="welcomeBanner">
+      <h1>Welcome back, USER!</h1>
+      <p>We have a <b style="color: rgb(240, 8, 8);">special offer</b> just for you!</p>
+      <p class="highlight">Don't miss our weekend deals.</p>
+    </div>
+
+  </section>
+
+  <section id="gallery">
+    <center>
+    <h2>Community Events Gallery</h2>
+    </center>
+    <table>
+      <caption>Highlights from Recent Community Events</caption>
+      <tr>
+        <td><img src="https://vinedisposal.com/AoOJmJbG1m8wSPOR58q4RG7KGRdXBYB81655215859.jpg" alt="Clean-Up" class="event-image"><div>Clean-Up Drive</div></td>
+        <td><img src="https://tse1.mm.bing.net/th?id=OIP.EZopIMr2mipmMpdHNHmbXAHaFW&pid=Api&P=0&h=180" alt="Food Donation" class="event-image"><div>Food Donation</div></td>
+        <td><img src="https://tse2.mm.bing.net/th?id=OIP.guYuepLm9XbQ4HWnC2RleQHaE5&pid=Api&P=0&h=180" alt="Tree Plantation" class="event-image"><div>Tree Plantation</div></td>
+      </tr>
+      <tr>
+        <td><img src="https://tse3.mm.bing.net/th?id=OIP.Ygfp0m66O26ctuDHM-X3TAHaE8&pid=Api&P=0&h=180" alt="Cultural Night" class="event-image"><div>Cultural Night</div></td>
+        <td><img src="https://tse2.mm.bing.net/th?id=OIP.3tRWUqKoSVTBSFlMgKC3tgHaE7&pid=Api&P=0&h=180" alt="Blood Donation" class="event-image"><div>Blood Donation</div></td>
+        <td><img src="https://tse4.mm.bing.net/th?id=OIP.4xUGb5bVl_8jXnQiyll_3QHaC7&pid=Api&P=0&h=180" alt="Art Workshop" class="event-image"><div>Art Workshop</div></td>
+      </tc>
+    </table>
+  </section>
+
+  <section id="register" style="padding: 20px;">
+  <center>
+    <h2>Event Registration</h2>
+    <form onsubmit="handleSubmit(event)" style="max-width: 400px; text-align: left;">
+      <div style="margin-bottom: 10px;">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" required style="width: 100%;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" required style="width: 100%;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" required style="width: 100%;">
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="eventType">Event Type:</label><br>
+        <select id="eventType" required style="width: 100%;">
+          <option value="">Select</option>
+          <option value="Clean-Up">Clean-Up</option>
+          <option value="Workshop">Workshop</option>
+          <option value="Fundraiser">Fundraiser</option>
+        </select>
+      </div>
+      <div style="margin-bottom: 10px;">
+        <label for="message">Message:</label><br>
+        <textarea id="message" style="width: 100%;"></textarea>
+      </div>
+      <div style="margin-bottom: 10px;">
+        <button type="submit" style="width: 100%;">Register</button>
+      </div>
+      <output id="confirmation"></output>
+    </form>
+  </center>
+</section>
+
+
+  <section id="feedback" style="padding: 20px;">
+  <center>
+    <h2>Event Feedback</h2>
+    <form style="max-width: 500px; text-align: left;">
+      
+      <div style="margin-bottom: 15px;">
+        <label for="phoneNumber">Phone Number:</label><br>
+        <input type="tel" id="phoneNumber" onblur="validatePhoneNumber()" style="width: 100%;">
+        <span id="phoneError" style="color:tomato;"></span>
+      </div>
+
+     
+      <div style="margin-bottom: 15px;">
+        <label for="eventSelect">Select the Event:</label><br>
+        <select id="eventSelect" onchange="displayEventFee()" style="width: 100%;">
+          <option value="">Select</option>
+          <option value="Clean-Up">Clean-Up: ₹400</option>
+          <option value="Workshop">Workshop: ₹1000</option>
+          <option value="Fundraiser">Fundraiser: ₹500</option>
+        </select>
+        <span id="eventFee" style="display: block; margin-top: 5px;"></span>
+      </div>
+
+     
+      <div style="margin-bottom: 15px;">
+        <label for="feedbackTextarea">Feedback:</label><br>
+        <textarea id="feedbackTextarea" onkeyup="countCharacters()" onkeydown="countCharacters()" style="width: 100%; height: 100px;"></textarea>
+        <span id="charCount" style="display: block; margin-top: 5px;">0 characters</span>
+      </div>
+
+    
+      <div style="margin-bottom: 15px;">
+        <label>Image:</label><br>
+        <img id="imageToEnlarge" 
+             src="https://tse4.mm.bing.net/th?id=OIP.HrD6BOTofMMfZYmsR2_RtgHaFa&pid=Api&P=0&h=180" 
+             alt="Click to Enlarge" 
+             ondblclick="enlargeImage()" 
+             style="max-width: 100%; height: auto; cursor: pointer;">
+      </div>
+
+      
+      <div style="margin-bottom: 10px;">
+        <button type="button" onclick="showConfirmation()" style="width: 100%;">Submit Feedback</button>
+      </div>
+
+    </form>
+  </center>
+</section>
+
+
+  <section id="promo">
+    <center>
+    <h2>Event Promo Video</h2>
+    <video id="promoVideo" controls>
+      <source src="https://www.instagram.com/reel/ClELj1lhmjs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" >
+      
+    </video>
+    <p id="videoStatus"></p>
+  </section>
+
+  <section id="preferences">
+    <center>
+    <h2>Save Your Preferences</h2>
+    <label for="eventType">Preferred Event Type:</label>
+    <select id="eventType">
+      <option value="">-- Select --</option>
+      <option value="workshop">Workshop</option>
+      <option value="conference">Conference</option>
+      <option value="seminar">Seminar</option>
+      <option value="webinar">Webinar</option>
+    </select><br><br>
+    <button onclick="clearPreferences()">Clear Preferences</button>
+    </center>
+  </section>
+
+  <section id="location">
+    <center>
+    <h2>Find Events Near You</h2>
+    <button onclick="findNearbyEvents()">Find Nearby Events</button>
+    <div id="locationInfo"></div>
+    <div id="errorInfo" style="color:red;"></div>
+    </center>
+  </section>
+
+  <footer>
+    <center>
+    <p>&copy; 2025 Event Portal. All rights reserved.</p>
+    </center>
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      document.getElementById('confirmation').textContent = `Thank you, ${name}, for registering.`;
+    }
+
+    function validatePhoneNumber() {
+      const phone = document.getElementById("phoneNumber").value;
+      const error = document.getElementById("phoneError");
+      if (!/^\d{10}$/.test(phone)) {
+        error.textContent = "Invalid phone number (10 digits required)";
+      } else {
+        error.textContent = "";
+      }
+    }
+
+    function displayEventFee() {
+      const feeSpan = document.getElementById("eventFee");
+      const value = document.getElementById("eventSelect").value;
+      const fees = {
+        "Clean-Up": "₹400",
+        "Workshop": "₹1000",
+        "Fundraiser": "₹500"
+      };
+      feeSpan.textContent = value ? `Event Fee: ${fees[value]}` : "";
+    }
+
+    function showConfirmation() {
+      alert("Thank you for your feedback!");
+    }
+
+    function enlargeImage() {
+      document.getElementById("imageToEnlarge").classList.toggle("enlarged");
+    }
+
+    function countCharacters() {
+      const count = document.getElementById("feedbackTextarea").value.length;
+      document.getElementById("charCount").textContent = `${count} characters`;
+    }
+
+    const promoVideo = document.getElementById('promoVideo');
+    promoVideo.oncanplay = function() {
+      document.getElementById('videoStatus').textContent = "Video ready to play";
+    };
+
+    const eventTypeSelect = document.getElementById('eventType');
+    function savePreference() {
+      localStorage.setItem('preferredEventType', eventTypeSelect.value);
+    }
+    function loadPreference() {
+      const saved = localStorage.getItem('preferredEventType');
+      if (saved) eventTypeSelect.value = saved;
+    }
+    function clearPreferences() {
+      localStorage.removeItem('preferredEventType');
+      sessionStorage.clear();
+      alert('Preferences cleared!');
+      location.reload();
+    }
+    eventTypeSelect.addEventListener('change', savePreference);
+    window.onload = loadPreference;
+
+    function findNearbyEvents() {
+      const info = document.getElementById("locationInfo");
+      const error = document.getElementById("errorInfo");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const lat = pos.coords.latitude.toFixed(6);
+            const lon = pos.coords.longitude.toFixed(6);
+            info.textContent = `Latitude: ${lat}, Longitude: ${lon}`;
+            error.textContent = "";
+          },
+          (err) => {
+            const messages = [
+              "Permission denied",
+              "Position unavailable",
+              "Request timed out",
+              "Unknown error"
+            ];
+            error.textContent = messages[err.code] || "Error occurred";
+            info.textContent = "";
+          }
+        );
+      } else {
+        error.textContent = "Geolocation not supported";
+      }
+    }
+  </script>
+
+</body>
+</html>
